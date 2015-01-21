@@ -62,3 +62,6 @@ names(t) <- gsub("Gyroscope.std", "Gyroscope.Acceleration.std", names(t))
 # Summarize variables
 mean.by.activity.and.subject <- aggregate(. ~ activity.description + subject, 
                                           subset(t, select=-activity.label), mean)
+
+# Write summary
+write.table(mean.by.activity.and.subject, "./GCD_Project.txt", row.names=FALSE)
